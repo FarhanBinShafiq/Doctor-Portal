@@ -3,7 +3,7 @@ import React from 'react';
 const HomeTestimonial = ({testimonial}) => {
     return (
         <div>
-            <div>
+            <div className='w-85'>
                 <p>{testimonial.description}</p>
                 <div>
                     <div className="card card-side bg-base-100">
