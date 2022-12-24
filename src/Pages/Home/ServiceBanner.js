@@ -7,7 +7,7 @@ const ServiceBanner = () => {
             <div className="card lg:card-side">
                 <figure><img src={treatment} alt="treatment" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title text-5xl font-bold">Exceptional Dental Care ,on Your Terms</h2>
+                    <h2 className="card-title text-4xl font-bold">Exceptional Dental Care ,on Your Terms</h2>
                     <p className='py-6'>Click the button to listen on Spotiwhy app.Click the button to listen on Spotiwhy app.Click the button to listen on Spotiwhy app.Click the button to listen on Spotiwhy app.Click the button to listen on Spotiwhy app.
                     Click the button to listen on Spotiwhy   Click the button to listen on Spotiwhy app.</p>
                 <div className="card-actions justify-start">
