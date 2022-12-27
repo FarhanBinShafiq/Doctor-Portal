@@ -19,7 +19,7 @@ const BookingModal = ({ treatment, date,setTreatment }) => {
                 <div className="modal-box">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg text-center text-secondary">Booking for : {treatment.name}</h3>
-                    <form onClick={handleBooking} className='grid my-5 grid-cols-1 gap-3 justify-items-center max-auto'>
+                    <form onSubmit={handleBooking} className='grid my-5 grid-cols-1 gap-3 justify-items-center max-auto'>
                         <input type="text" readOnly value={format(date, 'PP')} className="input input-bordered w-full max-w-xs" />
                         <select name='slot' className="select select-primary w-full max-w-xs">
 
