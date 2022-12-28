@@ -1,56 +1,81 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading/Loading';
-import { Link, useLocation, useNavigate  } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
+    //useNavigate
+
+    const navigate = useNavigate()
+    //react hooks form
     const { register, handleSubmit, formState: { errors } } = useForm();
     //Google log in
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-   
-  
-    //Email log in
-    const [signInWithEmailAndPassword, eUser, eLoading, eError] = useSignInWithEmailAndPassword(auth);
-
-    let signInErrors;
-    const navigate=useNavigate();
-    const location=useLocation();
- 
-    let { from } = location.state || { from: { pathname: "/" } };
-
-    if (gUser || eUser) {
-        navigate(from,{replace:true})
+    if (gUser) {
+        console.log(gUser)
     }
 
+    //update profile
 
+    const [updateProfile, updating, uError] = useUpdateProfile(auth);
 
-    if ( eLoading || gLoading) {
+    //Email log in
+    const [createUserWithEmailAndPassword, eUser, eLoading, eError] = useCreateUserWithEmailAndPassword(auth);
+
+    //loading
+
+    if (eLoading || gLoading) {
         return <Loading></Loading>
     }
 
+    //errors
+
+    let signInErrors;
+
+    if (eError || gError || uError) {
+        signInErrors = <p>{eError?.message || gError?.message || uError?.message}</p>
+    }
 
 
 
-  if( eError || gError){
-    signInErrors  = <p>{eError.message || gError.message}</p>
-  }
-
-
-    const onSubmit = data => {
+    //handle submit 
+    const onSubmit = async data => {
         console.log(data)
-        signInWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: updateProfile.name })
+        console.log("update done")
+        navigate('/appointments')  //
     };
-
-
 
     return (
         <div className=' flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Log in</h2>
+                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
+
+
+                        <div className="form-control w-full max-w-xs">
+
+                            <label className="label">
+                                <span className="label-text">Name:</span>
+
+                            </label>
+
+                            <input type="name"
+                                {...register("name", {
+                                    required: {
+                                        value: true, message: "Name is Required"
+                                    }
+                                })}
+                                placeholder="Your Email"
+                                className="input input-bordered w-full max-w-xs" />
+
+
+                        </div>
+
 
                         <div className="form-control w-full max-w-xs">
 
@@ -106,12 +131,12 @@ const Login = () => {
 
                             </label>
                         </div>
-                         {signInErrors}
-                        <input className='btn w-full max-w-xs text-whit' type="submit" value="Login" />
+                        {signInErrors}
+                        <input className='btn w-full max-w-xs text-whit' type="submit" value="Sign Up " />
 
                     </form>
 
-                    <p>New to Doctors Portal ? <Link to="/signup" className='text-primary'>Create a NEW ACCOUNT</Link> </p>
+                    <p>Already have an account ? <Link to="/login" className='text-primary'>Login</Link> </p>
 
                     <div className='divider'>OR</div>
                     <button
@@ -124,8 +149,4 @@ const Login = () => {
     );
 };
 
-
-
-
-
-export default Login;
+export default SignUp;
