@@ -11,7 +11,7 @@ import SignUp from './Pages/Login/SignUp';
 import Reviews from './Pages/Reviews/Reviews';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navbar from './Pages/Shared/Navbar/Navbar';
-//react
+
 
 function App() {
   return (
