@@ -14,6 +14,7 @@ import Reviews from './Pages/Reviews/Reviews';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navbar from './Pages/Shared/Navbar/Navbar';
 
+
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12'>
