@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const BookingModal = ({ treatment, date, setTreatment }) => {
 
-    const [user, loading, error] = useAuthState(auth)
+    const [user ] = useAuthState(auth)
     const formattedDate = format(date, 'PP')
 
     const handleBooking = e => {
@@ -16,7 +16,7 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
         const slot = e.target.slot.value;
         const patientName = e.target.name.value;
         const number = e.target.number.value;
-        console.log(number)
+        console.log(number) 
         const booking = {
             treatmentId: treatment._id,
             treatment: treatment.name,
@@ -42,7 +42,10 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                setTreatment(null)
+                if (data.acknowledged) {
+                    setTreatment(null)
+                    toast.success("Booking Confirmed")
+                }
             })
 
     }
