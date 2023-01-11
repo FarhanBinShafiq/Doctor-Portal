@@ -13,7 +13,7 @@ const Navbar = () => {
 
    
     //signout state
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const menuItems =
         <>

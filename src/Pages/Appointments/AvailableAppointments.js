@@ -4,8 +4,8 @@ import { useQuery } from 'react-query';
 import BookingModal from './BookingModal';
 import Service from './Service';
 
-const AvailableAppointments = ({ date }) => {
-    const formattedDate = format(date, 'PP')
+const AvailableAppointments = ({ selectedDate }) => {
+    const date = format(selectedDate, 'PP')
     const [treatment, setTreatment] = useState(null)
     // const [services, setServices] = useState([])
     // useEffect(() => {
@@ -17,22 +17,22 @@ const AvailableAppointments = ({ date }) => {
     //Using React Query
 
     const { data: services = [] } = useQuery({
-        queryKey: ['service',formattedDate],
-        queryFn: () => fetch(`http://localhost:5000/service?date=${formattedDate}`)
+        queryKey: ['service',date],
+        queryFn: () => fetch(`http://localhost:5000/service?date=${date}`)
             .then(res => res.json())
     })
 
 
     return (
         <div>
-            <h1 className='text-center text-primary'>Available Appointments on {format(date, 'PP')}</h1>
+            <h1 className='text-center text-primary'>Available Appointments on {format(selectedDate, 'PP')}</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
                     services.map(service => <Service service={service} setTreatment={setTreatment} key={service._id}></Service>)
                 }
             </div>
             {
-                treatment && <BookingModal treatment={treatment} date={date} setTreatment={setTreatment} />
+                treatment && <BookingModal treatment={treatment} selectedDate={selectedDate} setTreatment={setTreatment} />
             }
         </div>
     );
