@@ -16,7 +16,7 @@ const AvailableAppointments = ({ selectedDate }) => {
 
     //Using React Query
 
-    const { data: services = [] } = useQuery({
+    const { data: services = [],refetch } = useQuery({
         queryKey: ['service',date],
         queryFn: () => fetch(`http://localhost:5000/service?date=${date}`)
             .then(res => res.json())
@@ -32,7 +32,10 @@ const AvailableAppointments = ({ selectedDate }) => {
                 }
             </div>
             {
-                treatment && <BookingModal treatment={treatment} selectedDate={selectedDate} setTreatment={setTreatment} />
+                treatment && <BookingModal treatment={treatment}
+                refetch={refetch}
+                selectedDate={selectedDate} 
+                setTreatment={setTreatment} />
             }
         </div>
     );

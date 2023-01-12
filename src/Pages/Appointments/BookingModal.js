@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import { toast } from 'react-toastify';
 
 
-const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
+const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
 
     const [user ] = useAuthState(auth)
     const date = format(selectedDate, 'PP')
@@ -45,6 +45,10 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
                 if (data.acknowledged) {
                     setTreatment(null)
                     toast.success("Booking Confirmed")
+                    refetch()
+                }
+                else{
+                    toast.error(data.message)
                 }
             })
 
