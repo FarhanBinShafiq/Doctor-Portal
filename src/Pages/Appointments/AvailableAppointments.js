@@ -7,6 +7,7 @@ import Service from './Service';
 const AvailableAppointments = ({ selectedDate }) => {
     const date = format(selectedDate, 'PP')
     const [treatment, setTreatment] = useState(null)
+    
     // const [services, setServices] = useState([])
     // useEffect(() => {
     //     fetch('http://localhost:5000/service')

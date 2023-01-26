@@ -1,14 +1,16 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { format } from 'date-fns';
-import { toast } from 'react-toastify';
+ 
+import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
-
-    const [user ] = useAuthState(auth)
+    const { user } = useContext(AuthContext);
+    // const [user ] = useAuthState(auth)
     const date = format(selectedDate, 'PP')
 
     const handleBooking = e => {
@@ -18,11 +20,14 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
         const number = e.target.number.value;
     
         const booking = {
+            patientName,
+            email:user.email, 
+            number,
             treatmentId: treatment._id,
             treatment: treatment.name,
             appointmentDate: date,
-            slot, patientName, number,
-            patient: user.email
+            slot
+            
         }
 
         console.log(booking)
@@ -73,7 +78,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
 
 
                         </select>
-                        <input type="text" name='name' id='name' placeholder='Full Name' className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name='name' defaultValue={user?.displayName} disabled id='name' placeholder='Full Name' className="input input-bordered w-full max-w-xs" />
                         <input type="text" name='email' disabled value={user?.email || ''} placeholder="Email address" className="input input-bordered w-full max-w-xs" />
                         <input type="text" name='number' id="number" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
 

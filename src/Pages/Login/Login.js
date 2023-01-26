@@ -1,46 +1,48 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading/Loading';
-import { Link, useLocation, useNavigate  } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { singIn } = useContext(AuthContext)
+    const [loginUserEmail, setLoginEUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail)
+    const [loginError, setLoginError] = useState('')
+
+    //Navigate after log in
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+
+
+
     //Google log in
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-   
-  
-    //Email log in
-    const [signInWithEmailAndPassword, eUser, eLoading, eError] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
-    let signInErrors;
-    const navigate=useNavigate();
-    const location=useLocation();
- 
-    let { from } = location.state || { from: { pathname: "/" } };
-
-    if (gUser || eUser) {
-        navigate(from,{replace:true})
+    if (token) {
+        navigate(from, { replace: true })
     }
-
-
-
-    if ( eLoading || gLoading) {
-        return <Loading></Loading>
-    }
-
-
-
-
-  if( eError || gError){
-    signInErrors  = <p>{eError.message || gError.message}</p>
-  }
 
 
     const onSubmit = data => {
         console.log(data)
-        signInWithEmailAndPassword(data.email, data.password)
+        setLoginError('');
+        singIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                setLoginEUserEmail(data.email)
+
+            })
+            .catch(error => {
+                console.log(error.message);
+                setLoginError(error.message);
+            })
     };
 
 
@@ -106,8 +108,12 @@ const Login = () => {
 
                             </label>
                         </div>
-                         {signInErrors}
+
                         <input className='btn w-full max-w-xs text-whit' type="submit" value="Login" />
+
+                        <div>
+                            {loginError && <p className='text-red-600'>{loginError} Why Not?</p>}
+                        </div>
 
                     </form>
 
