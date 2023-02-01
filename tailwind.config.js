@@ -2,7 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundOpacity: ['active']
+    },
   },
   daisyui: {
     themes: [
@@ -26,7 +28,7 @@ module.exports = {
           "warning": "#FBBD23",
 
           "error": "#F87272",
-           
+
         },
       },
     ],

@@ -1,11 +1,20 @@
 import React from 'react';
+import HomeTestimonials from '../Home/HomeTestimonials';
+ 
+import AboutBanner from './AboutBanner';
+import AboutInfo from './AboutInfo';
+ 
 
-const About = () => {
+
+const Banner = () => {
     return (
         <div>
-            <h2>This is about</h2>
+            <AboutBanner></AboutBanner>
+            <AboutInfo></AboutInfo>
+           <HomeTestimonials></HomeTestimonials>
+            
         </div>
     );
 };
 
-export default About;
+export default Banner;

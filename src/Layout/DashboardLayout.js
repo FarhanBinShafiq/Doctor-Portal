@@ -14,7 +14,7 @@ const DashboardLayout = () => {
             <Navbar />
 
 
-            <div className="drawer drawer-mobile">
+            <div className="drawer drawer-mobile font-mono">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col  ">
                     <Outlet></Outlet>
@@ -23,7 +23,7 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80  text-base-content">
+                    <ul className="menu p-4 w-80   bg-primary text-base-content">
 
                         <li><Link to='/dashboard'>My Appointments</Link></li>
 
@@ -45,3 +45,33 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+
+
+
+
+
+
+// <div className="drawer">
+//                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
+//                 <div className="drawer-content">
+//                     <Outlet></Outlet>
+//                     <label htmlFor="dashboard-drawer" className="btn btn-primary drawer-button">Open drawer</label>
+//                 </div>
+//                 <div className="drawer-side">
+//                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
+//                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+
+//                         <li><Link to='/dashboard'>My Appointments</Link></li>
+
+//                         {
+//                             isAdmin && <>
+//                                 <li><Link to='/dashboard/allusers'>All Users</Link></li>
+//                                 <li><Link to='/dashboard/adddoctor'>Add a Doctor</Link></li>
+//                                 <li><Link to='/dashboard/managedoctor'>Manage Doctor</Link></li>
+//                             </>
+//                         }
+
+
+//                     </ul>
+//                 </div>
+//             </div>

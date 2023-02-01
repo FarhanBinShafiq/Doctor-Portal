@@ -4,7 +4,6 @@ import Home from "../../Pages/Home/Home"
 import Login from "../../Pages/Login/Login";
 import SignUp from '../../Pages/Login/SignUp';
 import Appointment from "../../Pages/Appointments/Appointments";
-import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import MyAppointment from "../../Pages/Dashboard/MyAppointment/MyAppointment";
@@ -12,12 +11,15 @@ import AllUser from "../../Pages/Dashboard/AllUser/AllUser";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AddDoctor from "../../Pages/Dashboard/AddDoctor/AddDoctor";
 import ManageDoctor from "../../Pages/Dashboard/ManageDoctor/ManageDoctor";
+import About from "../../Pages/About/About";
+import Doctors from "../../Pages/Doctors/Doctors";
+ 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        //errorElement: <DisplayError></DisplayError>,
+         
         children: [
             {
                 path: '/',
@@ -38,7 +40,17 @@ const router = createBrowserRouter([
             {
                 path: '/appointments',
                 element: <Appointment></Appointment>
+            },
+            {
+                path: '/aboutus',
+                element: <About></About>
+            },
+            {
+                path: '/doctors',
+                element: <Doctors></Doctors>
             }
+            
+            
         ]
     },
 
@@ -62,6 +74,7 @@ const router = createBrowserRouter([
                 path: '/dashboard/managedoctor',
                 element: <AdminRoute><ManageDoctor></ManageDoctor></AdminRoute>
             }
+           
         ]
 
     }

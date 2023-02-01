@@ -1,6 +1,7 @@
 
 import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const MyAppointment = () => {
@@ -37,11 +38,12 @@ const MyAppointment = () => {
                                 <th>Treatment</th>
                                 <th>Date</th>
                                 <th>Time</th>
+                                <th>Payment</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            {   bookings &&
+                            {bookings &&
                                 bookings?.map((booking, i) =>
                                     <tr className='hover' key={booking._id}>
                                         <th>{i + 1}</th>
@@ -49,6 +51,7 @@ const MyAppointment = () => {
                                         <td>{booking.treatment}</td>
                                         <td>{booking.appointmentDate}</td>
                                         <td>{booking.slot}</td>
+                                        <td>${booking.price}</td>
                                     </tr>
 
                                 )

@@ -1,7 +1,6 @@
 
 import React, { useContext } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+ 
 import { format } from 'date-fns';
  
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -26,7 +25,8 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
             treatmentId: treatment._id,
             treatment: treatment.name,
             appointmentDate: date,
-            slot
+            slot,
+            price:treatment.price
             
         }
 
@@ -36,7 +36,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
 
         //post method
 
-        fetch("http://localhost:5000/booking", {
+        fetch("http://localhost:5000/bookings", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -84,9 +84,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
 
                         <input type="submit" placeholder="Submit" className="btn btn-secondary w-full max-w-xs" />
                     </form>
-                    {/* <div className="modal-action">
-                        <label htmlFor="booking-modal" className="btn justify-center mx-auto ">Booking</label>
-                    </div> */}
+                  
                 </div>
             </div>
         </div>

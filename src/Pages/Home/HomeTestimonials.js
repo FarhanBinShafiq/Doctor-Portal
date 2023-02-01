@@ -25,17 +25,18 @@ const HomeTestimonials = () => {
             _id: 3,
             description: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
             img: people3,
-            name: 'Cristiano Ronaldo',
+            name: 'Cristiano',
             address: 'London'
-        }
+        },
+        
     ]
     return (
         <div>
-            <div className='my-10'>
+            <div className='my-10 font-mono'>
                 <div className='flex justify-between'>
                     <div>
                         <h3 className='text-primary uppercase font-bold'>Testimonial</h3>
-                        <h2 className='text-4xl font-bold text-blck'>What Our Patients Say</h2>
+                        <h2 className='text-4xl font-bold text-teal-600 '>What Our Patients Say</h2>
                     </div>
                     <div>
                         <img src={quote} className='w-24 lg:w-28'/>

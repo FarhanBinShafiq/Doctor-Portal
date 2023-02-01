@@ -81,17 +81,17 @@ const SignUp = () => {
 
 
     return (
-        <div className=' flex h-screen justify-center items-center'>
+        <div className=' flex h-screen justify-center font-mono bg-black items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+                    <h2 className="text-center text-2xl text-teal-600 uppercase font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
 
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
-                                <span className="label-text">Name:</span>
+                                <span className="label-text text-teal-600 uppercase ">Name:</span>
 
                             </label>
 
@@ -101,7 +101,7 @@ const SignUp = () => {
                                         value: true, message: "Name is Required"
                                     }
                                 })}
-                                placeholder="Your Email"
+                                placeholder="Your Full Name"
                                 className="input input-bordered w-full max-w-xs" />
 
 
@@ -111,7 +111,7 @@ const SignUp = () => {
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
-                                <span className="label-text">Email:</span>
+                                <span className="label-text text-teal-600 uppercase ">Email:</span>
 
                             </label>
 
@@ -135,7 +135,7 @@ const SignUp = () => {
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
-                                <span className="label-text">Password:</span>
+                                <span className="label-text text-teal-600 uppercase ">Password:</span>
 
                             </label>
 
@@ -156,18 +156,18 @@ const SignUp = () => {
                         </div>
                         <br />
 
-                        <input className='btn w-full max-w-xs text-whit' type="submit" value="Sign Up " />
+                        <input className='btn w-full max-w-xs text-white bg-black' type="submit" value="Sign Up " />
                         {
                             signupErrors && <p className='text-red-600'>{signupErrors}</p>
                         }
                     </form>
 
-                    <p>Already have an account ? <Link to="/login" className='text-primary'>Login</Link> </p>
+                    <p>Already have an account ? <Link to="/login" className='text-teal-600 bg-black uppercase '>Login</Link> </p>
 
-                    <div className='divider'>OR</div>
+                    <div className='divider text-teal-600 text-3xl uppercase '>OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className='btn btn-outline'>
+                        className='btn btn-outline text-teal-600 uppercase  bg-black'>
                         Continue with Google</button>
                 </div>
             </div>

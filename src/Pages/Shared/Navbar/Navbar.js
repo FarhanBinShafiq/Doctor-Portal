@@ -18,8 +18,9 @@ const Navbar = () => {
     const menuItems =
         <>
             <li><Link to='/home'>Home</Link></li>
-            <li><Link to='/about'>About</Link></li>
+            <li><Link to='/aboutus'>About</Link></li>
             <li><Link to='/appointments'>Appointment</Link></li>
+            <li><Link to='/doctors'>Doctors</Link></li>
             <li><Link to='/contact'>Contact Us</Link></li>
             {user?.uid ?
                 <>
@@ -30,7 +31,7 @@ const Navbar = () => {
         </>
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-purple-400">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabindex="0" className="btn btn-ghost lg:hidden">
@@ -48,9 +49,17 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <label tabindex="2" htmlFor="dashboard-drawer" className="btn btn-ghost ml-8 lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </label>
+                <div className="navbar-end">
+                    <label tabindex="2" htmlFor="dashboard-drawer" className="btn btn-ghost ml-8 lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+
+                </div>
+
+                <div className="navbar-end hidden lg:block">
+                      
+                      <Link to='/signup'><button className='btn btn-primary'>Create an account</button></Link>
+                </div>
 
             </div>
         </div>

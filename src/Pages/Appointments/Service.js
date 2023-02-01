@@ -12,7 +12,7 @@ const Service = ({ service, setTreatment }) => {
                             <span className='text-red-500'> No Slot Available</span>
                     }</p>
                     <p>{service.slots.length} {service.slots.length > 1 ? 'spaces' : 'space'} available</p>
-
+                     <p><small>Price: ${service.price}</small></p>
                     <div className="card-actions justify-center">
                         <label
                             htmlFor="booking-modal"

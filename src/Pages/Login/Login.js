@@ -48,16 +48,16 @@ const Login = () => {
 
 
     return (
-        <div className=' flex h-screen justify-center items-center'>
+        <div className=' flex h-screen justify-center bg-black font-mono items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Log in</h2>
+                    <h2 className="text-center text-2xl text-teal-600 uppercase font-bold">Log in</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
-                                <span className="label-text">Email:</span>
+                                <span className="label-text uppercase text-teal-600 ">Email:</span>
 
                             </label>
 
@@ -72,7 +72,7 @@ const Login = () => {
                                         message: "Provide a valid email address"
                                     })}
                                 placeholder="Your Email"
-                                className="input input-bordered w-full max-w-xs" />
+                                className="input input-bordered w-full   max-w-xs" />
 
                             <label className="label">
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
@@ -85,7 +85,7 @@ const Login = () => {
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
-                                <span className="label-text">Password:</span>
+                                <span className="label-text text-teal-600 uppercase">Password:</span>
 
                             </label>
 
@@ -109,7 +109,7 @@ const Login = () => {
                             </label>
                         </div>
 
-                        <input className='btn w-full max-w-xs text-whit' type="submit" value="Login" />
+                        <input className='btn w-full max-w-xs text-white bg-black' type="submit" value="Login" />
 
                         <div>
                             {loginError && <p className='text-red-600'>{loginError} Why Not?</p>}
@@ -117,12 +117,12 @@ const Login = () => {
 
                     </form>
 
-                    <p>New to Doctors Portal ? <Link to="/signup" className='text-primary'>Create a NEW ACCOUNT</Link> </p>
+                    <p>New to Doctors Portal ? <Link to="/signup" className='text-teal-600 bg-black '>Create a NEW ACCOUNT</Link> </p>
 
-                    <div className='divider'>OR</div>
+                    <div className='divider text-teal-600 text-3xl uppercase '>OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className='btn btn-outline'>
+                        className='btn text-teal-600 bg-black btn-outline'>
                         Continue with Google</button>
                 </div>
             </div>
