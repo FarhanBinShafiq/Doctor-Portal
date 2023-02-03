@@ -7,7 +7,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const MyAppointment = () => {
 
     const { user } = useContext(AuthContext)
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://doctors-portal-server10237.up.railway.app/bookings?email=${user?.email}`;
 
 
     const { data: bookings = [] } = useQuery({
@@ -25,7 +25,7 @@ const MyAppointment = () => {
 
     return (
         <div>
-            <h2 className='text-3xl'>My Appointments</h2>
+            <h2 className='text-3xl text-center uppercase'>My Appointments</h2>
 
             <div className='mb-5'>
                 <div className="overflow-x-auto">

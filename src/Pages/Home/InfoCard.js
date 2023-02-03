@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InfoCard = ({ img, cardTitle, bgClass }) => {
+const InfoCard = ({ img, cardTitle, bgClass,location,phone,time }) => {
     return (
         <div className='font-mono'>
             <div className={`card card-side bg-base-100 shadow-xl ${bgClass}`} >
@@ -9,7 +9,7 @@ const InfoCard = ({ img, cardTitle, bgClass }) => {
       
                 <div className="card-body">
                     <h2 className="card-title   text-black">{cardTitle}</h2>
-                    <p className='text-white'>Click the button to watch on Jetflix app.</p>
+                    <p className='text-white'>{location} {phone} {time}</p>
 
                 </div>
             </div>

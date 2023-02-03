@@ -15,7 +15,7 @@ const AddDoctor = () => {
     const { data: specialties, isLoading } = useQuery({
         queryKey: ['specialty'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/appointmentSpecialty`);
+            const res = await fetch(`https://doctors-portal-server10237.up.railway.app/appointmentSpecialty`);
             const data = await res.json();
             return data;
 
@@ -33,6 +33,7 @@ const AddDoctor = () => {
         const formData=new FormData();
         formData.append('image',image)
         const url=`https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        console.log(url)
 
         fetch(url,{
             method:'POST',
@@ -52,11 +53,11 @@ const AddDoctor = () => {
                     image:imgData.data.url
                 }
 
-                 fetch(`http://localhost:5000/doctors`,{
+                 fetch(`https://doctors-portal-server10237.up.railway.app/doctors`,{
                     method:"POST",
                     headers:{
                         'content-type':'application/json',
-                        authorization:`bearer ${localStorage.getItem('accessToken  ')}`
+                        authorization:`bearer ${localStorage.getItem('accessToken')}`
                     },
                     body:JSON.stringify(doctor)
                  })
@@ -73,7 +74,7 @@ const AddDoctor = () => {
 
     return (
         <div className='w-96 p-7'>
-            <h2 className='text-4xl'>Add a Doctor</h2>
+            <h2 className='text-4xl uppercase'>Add a Doctor</h2>
             <>
                 <form onSubmit={handleSubmit(handleAddDoctor)}>
 

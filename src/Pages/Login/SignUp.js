@@ -2,8 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import auth from '../../firebase.init';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Loading from '../Shared/Loading/Loading';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
 import useToken from '../../hooks/useToken';
@@ -61,7 +60,7 @@ const SignUp = () => {
     ///When user create a new account save in db and match with token then call the token for redirect to the page
     const saveUser = (name, email) => {
         const user = { name, email };
-        fetch('http://localhost:5000/users', {
+        fetch('https://doctors-portal-server10237.up.railway.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

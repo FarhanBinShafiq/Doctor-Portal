@@ -20,9 +20,9 @@ const ManageDoctor = () => {
         queryKey: ['doctors'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/doctors', {
+                const res = await fetch('https://doctors-portal-server10237.up.railway.app/doctors', {
                     headers: {
-                         authorization: `bearer ${localStorage.getItem('accessToken  ')}`
+                        authorization: `bearer ${localStorage.getItem('accessToken  ')}`
                     }
                 })
                 const data = await res.json();
@@ -39,7 +39,7 @@ const ManageDoctor = () => {
     //delete doctor
 
     const handleDeleteDoctor = doctor => {
-        fetch(`http://localhost:5000/doctors/${doctor._id}`, {
+        fetch(`https://doctors-portal-server10237.up.railway.app/doctors/${doctor._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -48,12 +48,12 @@ const ManageDoctor = () => {
 
             .then(res => res.json())
             .then(data => {
-               if(data.deletedCount>0){
-                console.log(data)
-                refetch();
-                toast.success(`Doctor ${doctor.name} deleted Successfully`)
-           
-               }
+                if (data.deletedCount > 0) {
+                    console.log(data)
+                    refetch();
+                    toast.success(`Doctor ${doctor.name} deleted Successfully`)
+
+                }
             })
     }
 
@@ -62,7 +62,7 @@ const ManageDoctor = () => {
     }
     return (
         <div>
-            <h2 className=' text-3xl'>Manage Doctors:{doctors?.length}</h2>
+            <h2 className=' text-3xl uppercase text-center'>Total Doctors:{doctors?.length}</h2>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
@@ -79,7 +79,7 @@ const ManageDoctor = () => {
                         </thead>
                         <tbody>
 
-                            {
+                            {/* {
                                 doctors.map((doctor, i) =>
 
                                     <tr key={doctor._id}>
@@ -97,7 +97,7 @@ const ManageDoctor = () => {
                                         <td>{doctor.email}</td>
                                         <td>{doctor.specialty}</td>
                                         <td>
-                                            {/* The button to open modal */}
+                                            {/* The button to open modal 
                                             <label htmlFor="confirmation-modal"
                                                 onClick={() => setDeletingDoctor(doctor)}
                                                 className="btn btn-sm btn-error">Delete</label>
@@ -105,6 +105,24 @@ const ManageDoctor = () => {
                                     </tr>
 
                                 )
+                            } */}
+
+
+                            {
+                                doctors.map((doctor, i) => <tr key={doctor._id}>
+                                    <th>{i + 1}</th>
+                                    <td><div className="avatar">
+                                        <div className="w-24 rounded-full">
+                                            <img src={doctor.image} alt="" />
+                                        </div>
+                                    </div></td>
+                                    <td>{doctor.name}</td>
+                                    <td>{doctor.email}</td>
+                                    <td>{doctor.specialty}</td>
+                                    <td>
+                                        <label onClick={() => setDeletingDoctor(doctor)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
+                                    </td>
+                                </tr>)
                             }
 
                         </tbody>

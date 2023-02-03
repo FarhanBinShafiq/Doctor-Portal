@@ -36,7 +36,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
 
         //post method
 
-        fetch("http://localhost:5000/bookings", {
+        fetch("https://doctors-portal-server10237.up.railway.app/bookings", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -64,7 +64,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <label htmlFor=" " className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg text-center text-secondary">Booking for : {treatment.name}</h3>
                     <form onSubmit={handleBooking} className='grid my-5 grid-cols-1 gap-3 justify-items-center max-auto'>
                         <input type="text" readOnly value={format(selectedDate, 'PP')} className="input input-bordered w-full max-w-xs" />
@@ -82,7 +82,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
                         <input type="text" name='email' disabled value={user?.email || ''} placeholder="Email address" className="input input-bordered w-full max-w-xs" />
                         <input type="text" name='number' id="number" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
 
-                        <input type="submit" placeholder="Submit" className="btn btn-secondary w-full max-w-xs" />
+                        <input type="submit" placeholder="Submit" value={user?.email ?  'Submit'  :'For appointment log into your account'  } className="btn btn-secondary w-full max-w-xs" />
                     </form>
                   
                 </div>

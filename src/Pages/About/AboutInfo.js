@@ -11,7 +11,7 @@ const AboutInfo = () => {
 
                     <div >
 
-                        <img src={aboutinfo} className="rounded-lg" />
+                        <img src={aboutinfo} className="rounded-lg" alt=''/>
                     </div>
 
                     <div>

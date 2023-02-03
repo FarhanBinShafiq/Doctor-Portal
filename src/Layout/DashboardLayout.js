@@ -10,7 +10,7 @@ const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email)
     return (
-        <div>
+        <div >
             <Navbar />
 
 
@@ -23,7 +23,7 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80   bg-primary text-base-content">
+                    <ul className="menu p-4 w-60 h-90 uppercase bg-primary text-base-content">
 
                         <li><Link to='/dashboard'>My Appointments</Link></li>
 

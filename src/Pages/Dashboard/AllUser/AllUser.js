@@ -8,7 +8,7 @@ const AllUser = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users`)
+            const res = await fetch(`https://doctors-portal-server10237.up.railway.app/users`)
             const data = await res.json()
 
             return data;
@@ -16,7 +16,7 @@ const AllUser = () => {
     })
 
     const handleMakeAdmin = (id) => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://doctors-portal-server10237.up.railway.app/users/admin/${id}`, {
             method: "PUT",
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ const AllUser = () => {
 
     return (
         <div>
-            <h1>All USer</h1>
+            <h1 className='text-3xl text-center uppercase'>All User</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 

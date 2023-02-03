@@ -39,7 +39,7 @@ const HomeTestimonials = () => {
                         <h2 className='text-4xl font-bold text-teal-600 '>What Our Patients Say</h2>
                     </div>
                     <div>
-                        <img src={quote} className='w-24 lg:w-28'/>
+                        <img src={quote} className='w-24 lg:w-28' alt=''/>
                     </div>
                 </div>
 
