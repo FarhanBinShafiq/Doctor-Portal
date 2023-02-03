@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d693c157.css",
+    "main.js": "/static/js/main.fb4b71f9.js",
+    "static/js/787.0fe84981.chunk.js": "/static/js/787.0fe84981.chunk.js",
+    "static/media/appointment.png": "/static/media/appointment.d0d01a86a1465e3f2562.png",
+    "static/media/doctor.jpg": "/static/media/doctor.31d0a99455bb32d6779e.jpg",
+    "static/media/about_bg.jpg": "/static/media/about_bg.debbd98acc0aa24bdaa8.jpg",
+    "static/media/doctor_bg.jpg": "/static/media/doctor_bg.d7417439c41033f97b05.jpg",
+    "static/media/treatment.png": "/static/media/treatment.4663af1929c734cd3854.png",
+    "static/media/chair.png": "/static/media/chair.3ca333d1fa050f6e6eb4.png",
+    "static/media/logo.jpg": "/static/media/logo.a3ab0365638f7d8c44a7.jpg",
+    "static/media/doctor.png": "/static/media/doctor.0a279a5b65e8258865bf.png",
+    "static/media/aboutinfo.jpg": "/static/media/aboutinfo.77dfa00243766739569f.jpg",
+    "static/media/about.jpg": "/static/media/about.972802c810ecc64c7349.jpg",
+    "static/media/phone.svg": "/static/media/phone.0b1c25f70938a97d59d5c7c1796f0b61.svg",
+    "static/media/clock.svg": "/static/media/clock.623246e126ee58a8d90f2460c08c0f6b.svg",
+    "static/media/quote.svg": "/static/media/quote.87e2bfcfdd22cf5584bc95a97e0a8433.svg",
+    "index.html": "/index.html",
+    "static/media/marker.svg": "/static/media/marker.0bdab1635363afd723adbfe035c3358e.svg",
+    "main.d693c157.css.map": "/static/css/main.d693c157.css.map",
+    "main.fb4b71f9.js.map": "/static/js/main.fb4b71f9.js.map",
+    "787.0fe84981.chunk.js.map": "/static/js/787.0fe84981.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d693c157.css",
+    "static/js/main.fb4b71f9.js"
+  ]
+}
