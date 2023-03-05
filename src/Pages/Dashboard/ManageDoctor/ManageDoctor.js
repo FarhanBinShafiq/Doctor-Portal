@@ -20,7 +20,7 @@ const ManageDoctor = () => {
         queryKey: ['doctors'],
         queryFn: async () => {
             try {
-                const res = await fetch('https://doctors-portal-server10237.up.railway.app/doctors', {
+                const res = await fetch('http://localhost:5000/doctors', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken  ')}`
                     }
@@ -39,7 +39,7 @@ const ManageDoctor = () => {
     //delete doctor
 
     const handleDeleteDoctor = doctor => {
-        fetch(`https://doctors-portal-server10237.up.railway.app/doctors/${doctor._id}`, {
+        fetch(`http://localhost:5000/doctors/${doctor._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -36,7 +36,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment,refetch }) => {
 
         //post method
 
-        fetch("https://doctors-portal-server10237.up.railway.app/bookings", {
+        fetch("http://localhost:5000/bookings", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const MyAppointment = () => {
 
     const { user } = useContext(AuthContext)
-    const url = `https://doctors-portal-server10237.up.railway.app/bookings?email=${user?.email}`;
+    const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
 
     const { data: bookings = [] } = useQuery({

@@ -9,7 +9,7 @@ const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-        fetch('https://doctors-portal-server10237.up.railway.app/doctors')
+        fetch('http://localhost:5000/doctors')
             .then(res => res.json())
             .then(data => {
                 setDoctors(data)
@@ -28,7 +28,7 @@ const Doctors = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
-                    doctors.map(doctor => <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                    doctors.map(doctor => <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6'>
                         <Doctor
                             doctor={doctor}
                             key={doctor._id}

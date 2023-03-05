@@ -60,7 +60,7 @@ const SignUp = () => {
     ///When user create a new account save in db and match with token then call the token for redirect to the page
     const saveUser = (name, email) => {
         const user = { name, email };
-        fetch('https://doctors-portal-server10237.up.railway.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

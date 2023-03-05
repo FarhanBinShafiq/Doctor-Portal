@@ -15,7 +15,7 @@ const AvailableAppointments = ({ selectedDate }) => {
 
     const { data: services = [], refetch } = useQuery({
         queryKey: ['service', date],
-        queryFn: () => fetch(`https://doctors-portal-server10237.up.railway.app/service?date=${date}`)
+        queryFn: () => fetch(`http://localhost:5000/service?date=${date}`)
             .then(res => res.json())
     })
 
